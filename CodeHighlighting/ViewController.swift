@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let codeString = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("Test", ofType: "txt")!)
+        let string = Highlighting.defaultHighlight.highlight("html", code: codeString) ?? ""
+        print(string)
     }
 
     override func didReceiveMemoryWarning() {

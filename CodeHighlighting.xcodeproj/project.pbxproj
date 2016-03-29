@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3A6A0FF1CAA4EFC001A37A4 /* highlight.js in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A0FE1CAA4EFC001A37A4 /* highlight.js */; };
+		B3A6A1011CAA4FDE001A37A4 /* swift.js in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1001CAA4FDE001A37A4 /* swift.js */; };
+		B3A6A1031CAA6816001A37A4 /* zenburn.css in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1021CAA6816001A37A4 /* zenburn.css */; };
+		B3A6A1071CAA7C56001A37A4 /* Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1061CAA7C56001A37A4 /* Test.txt */; };
 		B3D2E4E61CAA267700162191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E4E51CAA267700162191 /* AppDelegate.swift */; };
 		B3D2E4E81CAA267700162191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E4E71CAA267700162191 /* ViewController.swift */; };
 		B3D2E4EB1CAA267700162191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D2E4E91CAA267700162191 /* Main.storyboard */; };
@@ -14,6 +18,8 @@
 		B3D2E4F01CAA267700162191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D2E4EE1CAA267700162191 /* LaunchScreen.storyboard */; };
 		B3D2E4FB1CAA267700162191 /* CodeHighlightingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E4FA1CAA267700162191 /* CodeHighlightingTests.swift */; };
 		B3D2E5061CAA267700162191 /* CodeHighlightingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E5051CAA267700162191 /* CodeHighlightingUITests.swift */; };
+		B3D2E5141CAA26B900162191 /* Highlighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E5131CAA26B900162191 /* Highlighting.swift */; };
+		B3D2E5161CAA27AF00162191 /* highlight.pack.js in Resources */ = {isa = PBXBuildFile; fileRef = B3D2E5151CAA27AF00162191 /* highlight.pack.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3A6A0FE1CAA4EFC001A37A4 /* highlight.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.js; sourceTree = "<group>"; };
+		B3A6A1001CAA4FDE001A37A4 /* swift.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = swift.js; sourceTree = "<group>"; };
+		B3A6A1021CAA6816001A37A4 /* zenburn.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = zenburn.css; sourceTree = "<group>"; };
+		B3A6A1061CAA7C56001A37A4 /* Test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.txt; sourceTree = "<group>"; };
 		B3D2E4E21CAA267700162191 /* CodeHighlighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeHighlighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D2E4E51CAA267700162191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3D2E4E71CAA267700162191 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,8 @@
 		B3D2E5011CAA267700162191 /* CodeHighlightingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeHighlightingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D2E5051CAA267700162191 /* CodeHighlightingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeHighlightingUITests.swift; sourceTree = "<group>"; };
 		B3D2E5071CAA267700162191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3D2E5131CAA26B900162191 /* Highlighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highlighting.swift; sourceTree = "<group>"; };
+		B3D2E5151CAA27AF00162191 /* highlight.pack.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.pack.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +115,12 @@
 				B3D2E4EC1CAA267700162191 /* Assets.xcassets */,
 				B3D2E4EE1CAA267700162191 /* LaunchScreen.storyboard */,
 				B3D2E4F11CAA267700162191 /* Info.plist */,
+				B3D2E5151CAA27AF00162191 /* highlight.pack.js */,
+				B3A6A0FE1CAA4EFC001A37A4 /* highlight.js */,
+				B3A6A1001CAA4FDE001A37A4 /* swift.js */,
+				B3A6A1021CAA6816001A37A4 /* zenburn.css */,
+				B3D2E5131CAA26B900162191 /* Highlighting.swift */,
+				B3A6A1061CAA7C56001A37A4 /* Test.txt */,
 			);
 			path = CodeHighlighting;
 			sourceTree = "<group>";
@@ -230,8 +248,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3D2E4F01CAA267700162191 /* LaunchScreen.storyboard in Resources */,
+				B3D2E5161CAA27AF00162191 /* highlight.pack.js in Resources */,
+				B3A6A1011CAA4FDE001A37A4 /* swift.js in Resources */,
 				B3D2E4ED1CAA267700162191 /* Assets.xcassets in Resources */,
 				B3D2E4EB1CAA267700162191 /* Main.storyboard in Resources */,
+				B3A6A1031CAA6816001A37A4 /* zenburn.css in Resources */,
+				B3A6A1071CAA7C56001A37A4 /* Test.txt in Resources */,
+				B3A6A0FF1CAA4EFC001A37A4 /* highlight.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +281,7 @@
 			files = (
 				B3D2E4E81CAA267700162191 /* ViewController.swift in Sources */,
 				B3D2E4E61CAA267700162191 /* AppDelegate.swift in Sources */,
+				B3D2E5141CAA26B900162191 /* Highlighting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +508,7 @@
 				B3D2E50C1CAA267700162191 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3D2E50D1CAA267700162191 /* Build configuration list for PBXNativeTarget "CodeHighlightingTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +517,7 @@
 				B3D2E50F1CAA267700162191 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3D2E5101CAA267700162191 /* Build configuration list for PBXNativeTarget "CodeHighlightingUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +526,7 @@
 				B3D2E5121CAA267700162191 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
