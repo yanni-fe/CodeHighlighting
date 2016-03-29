@@ -26,7 +26,7 @@ class Highlighting {
             context.evaluateScript("var hljs = window.hljs;")
             context.evaluateScript(contextString)
         } catch {
-            fatalError("error: \(error)")
+            fatalError("Highlighting setup fail: \(error)")
         }
     }
     
@@ -44,8 +44,29 @@ class Highlighting {
     }
 }
 
-class Converter {
+public class Converter {
     let regexString = "<span class=\"([\\w-]+?)\">((?!.*?<span).+?)</span>"
+    
+    private func setup() {
+        
+    }
+    
+    typealias SpanInfo = (totalRange: NSRange, cssClassName: String, content: String)
+    public func convert(string: String, theme: String) -> String? {
+        let regex: NSRegularExpression
+        do {
+            regex = try NSRegularExpression(pattern: self.regexString, options: [])
+        } catch {
+            fatalError("convert error: \(error)")
+        }
+        var resultString: String?
+        string.enumerateLines { (line, stop) -> () in
+            regex.enumerateMatchesInString(line, options: [], range: NSMakeRange(0, line.utf16.count)) { (match, _, _) -> Void in
+                
+            }
+        }
+        return nil
+    }
 }
 
 extension String {
