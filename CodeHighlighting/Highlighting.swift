@@ -14,26 +14,41 @@ class Highlighting {
     
     let context: JSContext
     private init () {
-        context = JSContext(virtualMachine: JSVirtualMachine())
+        let webview = UIWebView()
+        context = webview.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as! JSContext
+//        context = JSContext(virtualMachine: JSVirtualMachine())
         setup()
     }
     
     private func setup() {
         do {
-            let contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("highlight.pack", ofType: "js")!)
-            context.evaluateScript("var window = {};")
+            var contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("highlight.pack", ofType: "js")!)
+//            context.evaluateScript("var window = {};")
             context.evaluateScript(contextString)
-            context.evaluateScript("var hljs = window.hljs;")
+            contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("traverse", ofType: "js")!)
             context.evaluateScript(contextString)
+//            context.evaluateScript("var hljs = window.hljs;")
+//            context.evaluateScript(contextString)
         } catch {
             fatalError("Highlighting setup fail: \(error)")
         }
     }
     
+//    func highlight(lang: String, code: String) -> String? {
+//        context.setObject(code, forKeyedSubscript: "code")
+//        context.setObject(lang, forKeyedSubscript: "langForCode")
+//        let value = context.evaluateScript("var coding = hljs.highlight(langForCode, code);").valueForProperty("value")
+//        context.evaluateScript("var codeNode = document.createElement('code');")
+//        context.evaluateScript("codeNode.innerHTML = coding.value;").valueForProperty("value")
+//        context.evaluateScript("var nl = codeNode.childNodes;var i = nl.length, arr = new Array(i); for(; i--; arr[i] = nl[i]);")
+//        let nodes = context.objectForKeyedSubscript("arr")
+//        return value.toString()
+//    }
+
     func highlight(lang: String, code: String) -> String? {
         context.setObject(code, forKeyedSubscript: "code")
         context.setObject(lang, forKeyedSubscript: "langForCode")
-        let value = context.evaluateScript("hljs.highlight(langForCode, code)").valueForProperty("value")
+        let value = context.evaluateScript("highlightCode(code, langForCode);")
         return value.toString()
     }
     
@@ -59,10 +74,18 @@ public class Converter {
         } catch {
             fatalError("convert error: \(error)")
         }
-        var resultString: String?
+        var resultString = NSMutableAttributedString()
         string.enumerateLines { (line, stop) -> () in
-            regex.enumerateMatchesInString(line, options: [], range: NSMakeRange(0, line.utf16.count)) { (match, _, _) -> Void in
-                
+            var lineAttriString = NSMutableAttributedString(string: line)
+            var finished = false
+            while (!finished) {
+                regex.enumerateMatchesInString(line, options: [], range: NSMakeRange(0, line.utf16.count)) { (match, _, stop) -> Void in
+                    stop.memory = true // each time only handle one match
+                    guard let match = match where match.range.location != NSNotFound else {
+                        finished = true
+                        return
+                    }
+                }
             }
         }
         return nil
