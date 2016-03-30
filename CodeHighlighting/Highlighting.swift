@@ -22,11 +22,11 @@ class Highlighting {
     
     private func setup() {
         do {
-            var contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("highlight.pack", ofType: "js")!)
+            let contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("highlight.pack", ofType: "js")!)
 //            context.evaluateScript("var window = {};")
             context.evaluateScript(contextString)
-            contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("traverse", ofType: "js")!)
-            context.evaluateScript(contextString)
+            let contextString1 = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("traverse", ofType: "js")!)
+            context.evaluateScript(contextString1)
 //            context.evaluateScript("var hljs = window.hljs;")
 //            context.evaluateScript(contextString)
         } catch {
@@ -37,25 +37,26 @@ class Highlighting {
 //    func highlight(lang: String, code: String) -> String? {
 //        context.setObject(code, forKeyedSubscript: "code")
 //        context.setObject(lang, forKeyedSubscript: "langForCode")
-//        let value = context.evaluateScript("var coding = hljs.highlight(langForCode, code);").valueForProperty("value")
-//        context.evaluateScript("var codeNode = document.createElement('code');")
-//        context.evaluateScript("codeNode.innerHTML = coding.value;").valueForProperty("value")
-//        context.evaluateScript("var nl = codeNode.childNodes;var i = nl.length, arr = new Array(i); for(; i--; arr[i] = nl[i]);")
-//        let nodes = context.objectForKeyedSubscript("arr")
+//        let value = context.evaluateScript("hljs.highlight(langForCode, code);").valueForProperty("value")
+////        context.evaluateScript("var codeNode = document.createElement('code');")
+////        context.evaluateScript("codeNode.innerHTML = coding.value;").valueForProperty("value")
+////        context.evaluateScript("var nl = codeNode.childNodes;var i = nl.length, arr = new Array(i); for(; i--; arr[i] = nl[i]);")
+////        let nodes = context.objectForKeyedSubscript("arr")
 //        return value.toString()
 //    }
 
-    func highlight(lang: String, code: String) -> String? {
+    func highlight(lang: String, code: String) -> [[String]]? {
         context.setObject(code, forKeyedSubscript: "code")
         context.setObject(lang, forKeyedSubscript: "langForCode")
         let value = context.evaluateScript("highlightCode(code, langForCode);")
-        return value.toString()
+        let valueArray = value.toArray() as? [[String]]
+        return valueArray
     }
     
-    func highlightAuto(code: String) -> String? {
+    func highlightAuto(code: String) -> [[String]]? {
         context.setObject(code, forKeyedSubscript: "code")
-        let value = context.evaluateScript("hljs.highlightAuto(code)").valueForProperty("value")
-        return value.toString()
+        let value = context.evaluateScript("highlightCode(code)")
+        return value.toArray() as? [[String]]
     }
 }
 
@@ -93,11 +94,23 @@ public class Converter {
 }
 
 extension String {
-    public func highlight(lang: String?) -> String? {
+    public func highlight(lang: String? = nil) -> NSAttributedString? {
         if let lang = lang {
-            return Highlighting.defaultHighlight.highlight(lang, code: self)
+            return Highlighting.defaultHighlight.highlight(lang, code: self).flatMap { array in
+                let res = NSMutableAttributedString()
+                array.forEach {
+                    res.appendAttributedString(NSAttributedString(string: $0[0], attributes: [NSForegroundColorAttributeName: UIColor(rgb: zenburn[$0[1]] ?? zenburn["hljs"]!)]))
+                }
+                return res
+            }
         } else {
-            return Highlighting.defaultHighlight.highlightAuto(self)
+            return Highlighting.defaultHighlight.highlightAuto(self).flatMap { array in
+                let res = NSMutableAttributedString()
+                array.forEach {
+                    res.appendAttributedString(NSAttributedString(string: $0[0], attributes: [NSForegroundColorAttributeName: UIColor(rgb: zenburn[$0[1]] ?? zenburn["hljs"]!)]))
+                }
+                return res
+            }
         }
     }
 }

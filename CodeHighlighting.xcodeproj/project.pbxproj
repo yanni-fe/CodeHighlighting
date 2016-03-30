@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9915609A1CAC150300E9054F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991560991CAC150300E9054F /* Utils.swift */; };
+		9915609C1CAC160500E9054F /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9915609B1CAC160500E9054F /* Themes.swift */; };
 		B3A6A0FF1CAA4EFC001A37A4 /* highlight.js in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A0FE1CAA4EFC001A37A4 /* highlight.js */; };
 		B3A6A1011CAA4FDE001A37A4 /* swift.js in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1001CAA4FDE001A37A4 /* swift.js */; };
 		B3A6A1031CAA6816001A37A4 /* zenburn.css in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1021CAA6816001A37A4 /* zenburn.css */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		991560991CAC150300E9054F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9915609B1CAC160500E9054F /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		B3A6A0FE1CAA4EFC001A37A4 /* highlight.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.js; sourceTree = "<group>"; };
 		B3A6A1001CAA4FDE001A37A4 /* swift.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = swift.js; sourceTree = "<group>"; };
 		B3A6A1021CAA6816001A37A4 /* zenburn.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = zenburn.css; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				B3D2E5131CAA26B900162191 /* Highlighting.swift */,
 				B3A6A1081CABE8DF001A37A4 /* traverse.js */,
 				B3A6A1061CAA7C56001A37A4 /* Test.txt */,
+				991560991CAC150300E9054F /* Utils.swift */,
+				9915609B1CAC160500E9054F /* Themes.swift */,
 			);
 			path = CodeHighlighting;
 			sourceTree = "<group>";
@@ -286,6 +292,8 @@
 				B3D2E4E81CAA267700162191 /* ViewController.swift in Sources */,
 				B3D2E4E61CAA267700162191 /* AppDelegate.swift in Sources */,
 				B3D2E5141CAA26B900162191 /* Highlighting.swift in Sources */,
+				9915609C1CAC160500E9054F /* Themes.swift in Sources */,
+				9915609A1CAC150300E9054F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

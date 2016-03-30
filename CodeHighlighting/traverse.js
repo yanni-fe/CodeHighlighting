@@ -12,28 +12,28 @@ function highlightCode(code, lang) {
     } else {
         htmlres = hljs.highlightAuto(code).value;
     }
-    return htmlres;
     var codeNode = document.createElement("code");
     codeNode.innerHTML = htmlres;
+    document.body.appendChild(codeNode);
     var nl = codeNode.childNodes;
     return convert(nl);
 }
 
-function convert(obj) {
+function convert(obj, parentClass) {
     if(obj instanceof NodeList) {
         var arr = [];
         for(var i = 0; i < obj.length; i++) {
-            var node = obj.item(i);
-            arr.extend(convert(node));
+            var node = obj[i];
+            arr.extend(convert(node, parentClass ? parentClass : "hljs"));
         }
         return arr;
     } else if(obj instanceof Node) {
         var arr = [];
-        if(obj.hasChildNodes()) {
-            arr.extend(convert(obj.childNodes));
+        if(obj.hasChildNodes() && !(obj.childNodes.length == 1 && obj.childNodes[0].nodeType == 3)) {
+            arr.extend(convert(obj.childNodes, obj.className));
         } else {
-            if(!obj.className) {
-                arr.push([obj.wholeText, ""]);
+            if(obj.nodeType == 3) {
+                arr.push([obj.wholeText, parentClass ? parentClass : "hljs"]);
             } else {
                 arr.push([obj.innerText, obj.className]);
             }
