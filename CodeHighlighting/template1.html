@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="zenburn.css" rel="stylesheet" type="text/css">
+    <script src="highlight.pack.js"></script>
+    <script>
+        function highlightCode(code, lang) {
+            var htmlres;
+            if(lang) {
+                htmlres = hljs.highlight(lang, code).value;
+            } else {
+                htmlres = hljs.highlightAuto(code).value;
+            }
+            document.getElementById("code1").innerHTML = htmlres;
+        }
+    </script>
+</head>
+<body>
+    <pre><code id="code1" class="hljs"></code></pre>
+</body></html>
