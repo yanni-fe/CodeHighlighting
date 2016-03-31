@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let codeString = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("Test", ofType: "txt")!)
         textView.backgroundColor = UIColor(rgb: zenburn["background"]!)
-        textView.attributedText = codeString.highlight("swift")
+        textView.attributedText = codeString.highlight("html")
     }
 
     override func didReceiveMemoryWarning() {

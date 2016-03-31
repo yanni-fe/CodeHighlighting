@@ -5,6 +5,16 @@ Array.prototype.extend = function (other_array) {
     /* you should include a test to check whether other_array really is an array */
     other_array.forEach(function(v) {this.push(v)}, this);
 }
+
+function highlightToiOS(code, lang) {
+    var htmlres = highlightCode(code, lang)
+    var codeNode = document.createElement("code");
+    codeNode.innerHTML = htmlres;
+    document.body.appendChild(codeNode);
+    var nl = codeNode.childNodes;
+    return convert(nl);
+}
+
 function highlightCode(code, lang) {
     var htmlres;
     if(lang) {

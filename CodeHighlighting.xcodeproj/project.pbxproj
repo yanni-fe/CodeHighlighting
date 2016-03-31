@@ -14,6 +14,8 @@
 		B3A6A1031CAA6816001A37A4 /* zenburn.css in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1021CAA6816001A37A4 /* zenburn.css */; };
 		B3A6A1071CAA7C56001A37A4 /* Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1061CAA7C56001A37A4 /* Test.txt */; };
 		B3A6A1091CABE8DF001A37A4 /* traverse.js in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A1081CABE8DF001A37A4 /* traverse.js */; };
+		B3A6A10B1CACD101001A37A4 /* HighlightWithWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A6A10A1CACD101001A37A4 /* HighlightWithWebViewController.swift */; };
+		B3A6A10D1CACD548001A37A4 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = B3A6A10C1CACD548001A37A4 /* template.html */; };
 		B3D2E4E61CAA267700162191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E4E51CAA267700162191 /* AppDelegate.swift */; };
 		B3D2E4E81CAA267700162191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D2E4E71CAA267700162191 /* ViewController.swift */; };
 		B3D2E4EB1CAA267700162191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D2E4E91CAA267700162191 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		B3A6A1021CAA6816001A37A4 /* zenburn.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = zenburn.css; sourceTree = "<group>"; };
 		B3A6A1061CAA7C56001A37A4 /* Test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.txt; sourceTree = "<group>"; };
 		B3A6A1081CABE8DF001A37A4 /* traverse.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = traverse.js; sourceTree = "<group>"; };
+		B3A6A10A1CACD101001A37A4 /* HighlightWithWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightWithWebViewController.swift; sourceTree = "<group>"; };
+		B3A6A10C1CACD548001A37A4 /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		B3D2E4E21CAA267700162191 /* CodeHighlighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeHighlighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D2E4E51CAA267700162191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3D2E4E71CAA267700162191 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			children = (
 				B3D2E4E51CAA267700162191 /* AppDelegate.swift */,
 				B3D2E4E71CAA267700162191 /* ViewController.swift */,
+				B3A6A10A1CACD101001A37A4 /* HighlightWithWebViewController.swift */,
 				B3D2E4E91CAA267700162191 /* Main.storyboard */,
 				B3D2E4EC1CAA267700162191 /* Assets.xcassets */,
 				B3D2E4EE1CAA267700162191 /* LaunchScreen.storyboard */,
@@ -125,6 +130,7 @@
 				B3A6A0FE1CAA4EFC001A37A4 /* highlight.js */,
 				B3A6A1001CAA4FDE001A37A4 /* swift.js */,
 				B3A6A1021CAA6816001A37A4 /* zenburn.css */,
+				B3A6A10C1CACD548001A37A4 /* template.html */,
 				B3D2E5131CAA26B900162191 /* Highlighting.swift */,
 				B3A6A1081CABE8DF001A37A4 /* traverse.js */,
 				B3A6A1061CAA7C56001A37A4 /* Test.txt */,
@@ -258,6 +264,7 @@
 			files = (
 				B3A6A1091CABE8DF001A37A4 /* traverse.js in Resources */,
 				B3D2E4F01CAA267700162191 /* LaunchScreen.storyboard in Resources */,
+				B3A6A10D1CACD548001A37A4 /* template.html in Resources */,
 				B3D2E5161CAA27AF00162191 /* highlight.pack.js in Resources */,
 				B3A6A1011CAA4FDE001A37A4 /* swift.js in Resources */,
 				B3D2E4ED1CAA267700162191 /* Assets.xcassets in Resources */,
@@ -293,6 +300,7 @@
 				B3D2E4E61CAA267700162191 /* AppDelegate.swift in Sources */,
 				B3D2E5141CAA26B900162191 /* Highlighting.swift in Sources */,
 				9915609C1CAC160500E9054F /* Themes.swift in Sources */,
+				B3A6A10B1CACD101001A37A4 /* HighlightWithWebViewController.swift in Sources */,
 				9915609A1CAC150300E9054F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

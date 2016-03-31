@@ -17,11 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TeB-h1-NJ8">
-                                <rect key="frame" x="20" y="20" width="560" height="144"/>
+                                <rect key="frame" x="20" y="40" width="560" height="540"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="bub-AG-QcG"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -29,9 +26,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TeB-h1-NJ8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0Ye-ON-o2C"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TeB-h1-NJ8" secondAttribute="bottom" constant="20" id="Bff-fb-n26"/>
                             <constraint firstAttribute="trailing" secondItem="TeB-h1-NJ8" secondAttribute="trailing" constant="20" id="rI4-s8-yBK"/>
                             <constraint firstItem="TeB-h1-NJ8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="rNe-30-qg0"/>
+                            <constraint firstItem="TeB-h1-NJ8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="uPK-AW-t2a"/>
                         </constraints>
                     </view>
                     <connections>
@@ -41,6 +39,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="323" y="226"/>
+        </scene>
+        <!--Highlight With Web View Controller-->
+        <scene sceneID="xI8-sj-RHf">
+            <objects>
+                <viewController id="JyU-Sh-ajf" customClass="HighlightWithWebViewController" customModule="CodeHighlighting" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Fq-b9-Gsa"/>
+                        <viewControllerLayoutGuide type="bottom" id="rc1-4p-ro0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cpo-Rl-7gz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypm-2Z-hhD">
+                                <rect key="frame" x="20" y="28" width="560" height="552"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ypm-2Z-hhD" firstAttribute="top" secondItem="9Fq-b9-Gsa" secondAttribute="bottom" constant="8" id="C0b-i7-Ysy"/>
+                            <constraint firstItem="rc1-4p-ro0" firstAttribute="top" secondItem="Ypm-2Z-hhD" secondAttribute="bottom" constant="20" id="ERP-SB-3zF"/>
+                            <constraint firstAttribute="trailing" secondItem="Ypm-2Z-hhD" secondAttribute="trailing" constant="20" id="m65-VZ-CXf"/>
+                            <constraint firstItem="Ypm-2Z-hhD" firstAttribute="leading" secondItem="cpo-Rl-7gz" secondAttribute="leading" constant="20" id="vL9-iq-Quq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Ypm-2Z-hhD" id="vSY-pv-7pp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ndv-dy-iyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="323"/>
         </scene>
     </scenes>
 </document>

@@ -1,61 +1,77 @@
-//
-//  Highlighting.swift
-//  CodeHighlighting
-//
-//  Created by Yu Pengyang on 3/29/16.
-//  Copyright © 2016 Caishuo. All rights reserved.
-//
-
-import UIKit
-import JavaScriptCore
-
-class Highlighting {
-static let defaultHighlight = Highlighting()
-
-let context: JSContext
-private init () {
-let webview = UIWebView()
-context = webview.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as! JSContext
-//        context = JSContext(virtualMachine: JSVirtualMachine())
-setup()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="zenburn.css" rel="stylesheet" type="text/css">
+<script src="highlight.pack.js"></script><script>
+function highlightCode(code, lang) {
+var htmlres;
+if(lang) {
+htmlres = hljs.highlight(lang, code).value;
+} else {
+htmlres = hljs.highlightAuto(code).value;
 }
-
-private func setup() {
-do {
-let contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("highlight.pack", ofType: "js")!)
-//            context.evaluateScript("var window = {};")
-context.evaluateScript(contextString)
-let contextString1 = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("traverse", ofType: "js")!)
-context.evaluateScript(contextString1)
-//            context.evaluateScript("var hljs = window.hljs;")
-//            context.evaluateScript(contextString)
-} catch {
-fatalError("Highlighting setup fail: \(error)")
+console.log(typeof htmlres);
+document.getElementById("code1").innerHTML = htmlres;
+}
+function highlightCode1(code, lang) {
+var newCode = "";
+for(var i = 0; i < code.length; i++) {
+newCode = newCode + code[i]
+if(i < code.length - 1) {
+newCode = newCode + "\n"
 }
 }
-
-//    func highlight(lang: String, code: String) -> String? {
-//        context.setObject(code, forKeyedSubscript: "code")
-//        context.setObject(lang, forKeyedSubscript: "langForCode")
-//        let value = context.evaluateScript("hljs.highlight(langForCode, code);").valueForProperty("value")
-////        context.evaluateScript("var codeNode = document.createElement('code');")
-////        context.evaluateScript("codeNode.innerHTML = coding.value;").valueForProperty("value")
-////        context.evaluateScript("var nl = codeNode.childNodes;var i = nl.length, arr = new Array(i); for(; i--; arr[i] = nl[i]);")
-////        let nodes = context.objectForKeyedSubscript("arr")
-//        return value.toString()
-//    }
-
-func highlight(lang: String, code: String) -> [[String]]? {
-context.setObject(code, forKeyedSubscript: "code")
-context.setObject(lang, forKeyedSubscript: "langForCode")
-let value = context.evaluateScript("highlightCode(code, langForCode);")
-let valueArray = value.toArray() as? [[String]]
-return valueArray
+var htmlres;
+if(lang) {
+htmlres = hljs.highlight(lang, newCode).value;
+} else {
+htmlres = hljs.highlightAuto(newCode).value;
 }
-
-func highlightAuto(code: String) -> [[String]]? {
-context.setObject(code, forKeyedSubscript: "code")
-let value = context.evaluateScript("highlightCode(code)")
-return value.toArray() as? [[String]]
+document.getElementById("code1").innerHTML = htmlres;
 }
+</script>
+</head>
+<body>
+<pre>
+<code id="code1" class="hljs">
+<span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"zenburn.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"highlight.pack.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">highlightCode</span>(<span class="hljs-params">code, lang</span>) </span>{
+<span class="hljs-keyword">var</span> htmlres;
+<span class="hljs-keyword">if</span>(lang) {
+htmlres = hljs.highlight(lang, code).value;
+} <span class="hljs-keyword">else</span> {
+htmlres = hljs.highlightAuto(code).value;
 }
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> htmlres);
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"code1"</span>).innerHTML = htmlres;
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">highlightCode1</span>(<span class="hljs-params">code, lang</span>) </span>{
+<span class="hljs-keyword">var</span> newCode = <span class="hljs-string">""</span>;
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; code.length; i++) {
+newCode = newCode + code[i] + (i &lt; code.length - <span class="hljs-number">1</span>) ? <span class="hljs-string">"\n"</span> : <span class="hljs-string">""</span>
+}
+<span class="hljs-keyword">var</span> htmlres;
+<span class="hljs-keyword">if</span>(lang) {
+htmlres = hljs.highlight(lang, newCode).value;
+} <span class="hljs-keyword">else</span> {
+htmlres = hljs.highlightAuto(newCode).value;
+}
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"code1"</span>).innerHTML = htmlres;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>This is a code test<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">code</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"code1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hljs"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">highlightCode1([<span class="hljs-string">'//'</span>,<span class="hljs-string">'//  Highlighting.swift'</span>,<span class="hljs-string">'//  CodeHighlighting'</span>,<span class="hljs-string">'//'</span>,<span class="hljs-string">'//  Created by Yu Pengyang on 3/29/16.'</span>,<span class="hljs-string">'//  Copyright © 2016 Caishuo. All rights reserved.'</span>,<span class="hljs-string">'//'</span>,<span class="hljs-string">''</span>,<span class="hljs-string">'import UIKit'</span>,<span class="hljs-string">'import JavaScriptCore'</span>,<span class="hljs-string">''</span>,<span class="hljs-string">'class Highlighting {'</span>,<span class="hljs-string">'    static let defaultHighlight = Highlighting()'</span>,<span class="hljs-string">''</span>,<span class="hljs-string">'    let context: JSContext'</span>,<span class="hljs-string">'    private init () {'</span>,<span class="hljs-string">'        let webview = UIWebView()'</span>,<span class="hljs-string">'        context = webview.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as! JSContext'</span>,<span class="hljs-string">'//        context = JSContext(virtualMachine: JSVirtualMachine())'</span>,<span class="hljs-string">'        setup()'</span>,<span class="hljs-string">'    }'</span>,<span class="hljs-string">''</span>,<span class="hljs-string">'    private func setup() {'</span>,<span class="hljs-string">'        do {'</span>,<span class="hljs-string">'            let contextString = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("highlight.pack", ofType: "js")!)'</span>,<span class="hljs-string">'//            context.evaluateScript("var window = {};")'</span>,<span class="hljs-string">'            context.evaluateScript(contextString)'</span>,<span class="hljs-string">'            let contextString1 = try String(contentsOfFile: NSBundle.mainBundle().pathForResource("traverse", ofType: "js")!)'</span>,<span class="hljs-string">'            context.evaluateScript(contextString1)'</span>,<span class="hljs-string">'//            context.evaluateScript("var hljs = window.hljs;")'</span>,<span class="hljs-string">'//            context.evaluateScript(contextString)'</span>,<span class="hljs-string">'        } catch {'</span>,<span class="hljs-string">'            fatalError("Highlighting setup fail: \(error)")'</span>,<span class="hljs-string">'        }'</span>,<span class="hljs-string">'    }'</span>,<span class="hljs-string">''</span>,<span class="hljs-string">'//    func highlight(lang: String, code: String) -&gt; String? {'</span>,<span class="hljs-string">'//        context.setObject(code, forKeyedSubscript: "code")'</span>,<span class="hljs-string">'//        context.setObject(lang, forKeyedSubscript: "langForCode")'</span>,<span class="hljs-string">'//        let value = context.evaluateScript("hljs.highlight(langForCode, code);").valueForProperty("value")'</span>,<span class="hljs-string">'////        context.evaluateScript("var codeNode = document.createElement(\'code\');")'</span>,<span class="hljs-string">'////        context.evaluateScript("codeNode.innerHTML = coding.value;").valueForProperty("value")'</span>,<span class="hljs-string">'////        context.evaluateScript("var nl = codeNode.childNodes;var i = nl.length, arr = new Array(i); for(; i--; arr[i] = nl[i]);")'</span>,<span class="hljs-string">'////        let nodes = context.objectForKeyedSubscript("arr")'</span>,<span class="hljs-string">'//        return value.toString()'</span>,<span class="hljs-string">'//    }'</span>,<span class="hljs-string">''</span>,<span class="hljs-string">'    func highlight(lang: String, code: String) -&gt; [[String]]? {'</span>,<span class="hljs-string">'        context.setObject(code, forKeyedSubscript: "code")'</span>,<span class="hljs-string">'        context.setObject(lang, forKeyedSubscript: "langForCode")'</span>,<span class="hljs-string">'        let value = context.evaluateScript("highlightCode(code, langForCode);")'</span>,<span class="hljs-string">'        let valueArray = value.toArray() as? [[String]]'</span>,<span class="hljs-string">'        return valueArray'</span>,<span class="hljs-string">'    }'</span>,<span class="hljs-string">''</span>,<span class="hljs-string">'    func highlightAuto(code: String) -&gt; [[String]]? {'</span>,<span class="hljs-string">'        context.setObject(code, forKeyedSubscript: "code")'</span>,<span class="hljs-string">'        let value = context.evaluateScript("highlightCode(code)")'</span>,<span class="hljs-string">'        return value.toArray() as? [[String]]'</span>,<span class="hljs-string">'    }'</span>,<span class="hljs-string">'}'</span>,], <span class="hljs-string">'swift'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre></body></html>
