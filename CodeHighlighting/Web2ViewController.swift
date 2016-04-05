@@ -13,19 +13,24 @@ class Web2ViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     var context: JSContext!
+    var codeString: String? {
+        didSet {
+            if let codeString = codeString {
+                context.setObject(codeString, forKeyedSubscript: "codeString")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        webView.scrollView.bounces = false
         webView.delegate = self
-        let path = NSBundle.mainBundle().bundlePath
-        let url = NSURL(fileURLWithPath: path)
         let htmlString = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("template1", ofType: "html")!)
-        let codeString = try! String(contentsOfFile: NSBundle.mainBundle().pathForResource("Test", ofType: "txt")!)
         context = webView.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as! JSContext
-        context.setObject(codeString, forKeyedSubscript: "codeString")
-        webView.loadHTMLString(htmlString, baseURL: url)
-        
+        codeString = try? String(contentsOfFile: NSBundle.mainBundle().pathForResource("Test", ofType: "txt")!)
+        webView.loadHTMLString(htmlString, baseURL: NSBundle.mainBundle().bundleURL)
     }
 
     override func didReceiveMemoryWarning() {

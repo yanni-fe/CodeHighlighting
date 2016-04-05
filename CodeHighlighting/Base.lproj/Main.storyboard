@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tVU-xq-c7m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="04R-Dy-0Td">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GX-d8-UQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="275"/>
+            <point key="canvasLocation" x="343" y="279"/>
         </scene>
         <!--Highlight With Web View Controller-->
         <scene sceneID="xI8-sj-RHf">
@@ -104,7 +104,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndv-dy-iyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="323"/>
+            <point key="canvasLocation" x="478" y="252"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="eDL-dQ-p5L">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="04R-Dy-0Td" customClass="TestViewController" customModule="CodeHighlighting" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TSx-qI-Vnw"/>
+                        <viewControllerLayoutGuide type="bottom" id="hta-rC-jTF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tDs-na-9RY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQL-8H-gxi" customClass="CodeHighlightView" customModule="CodeHighlighting" customModuleProvider="target">
+                                <rect key="frame" x="20" y="28" width="560" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cQL-8H-gxi" secondAttribute="trailing" constant="20" id="Q3z-Ws-9Rd"/>
+                            <constraint firstItem="cQL-8H-gxi" firstAttribute="leading" secondItem="tDs-na-9RY" secondAttribute="leading" constant="20" id="lj0-YO-JVs"/>
+                            <constraint firstItem="cQL-8H-gxi" firstAttribute="top" secondItem="TSx-qI-Vnw" secondAttribute="bottom" constant="8" id="yad-bF-wm7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="codeView" destination="cQL-8H-gxi" id="FrU-8u-ltw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YGp-nl-9j4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="391"/>
         </scene>
     </scenes>
 </document>
