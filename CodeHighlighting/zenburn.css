@@ -5,11 +5,18 @@ based on dark.css by Ivan Sagalaev
 
 */
 
+body, pre {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    -webkit-text-size-adjust: none;
+}
+
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
   background: #3f3f3f;
+  padding: 0.5em;
   color: #dcdcdc;
 }
 
@@ -69,7 +76,6 @@ based on dark.css by Ivan Sagalaev
 .hljs-meta {
   color: #7f9f7f;
 }
-
 
 .hljs-emphasis {
   font-style: italic;

@@ -13,7 +13,8 @@ class TestViewController: UIViewController {
     @IBOutlet weak var codeView: CodeHighlightView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let codeString = try? String(contentsOfFile: NSBundle.mainBundle().pathForResource("Test", ofType: "txt")!)
+        let codeString = try? String(contentsOfFile: NSBundle.mainBundle().pathForResource("traverse", ofType: "js")!)
+//        let codeString = try? String(contentsOfFile: NSBundle.mainBundle().pathForResource("Test", ofType: "txt")!)
         codeView.codeString = codeString
     }
 

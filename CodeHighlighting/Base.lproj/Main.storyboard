@@ -118,25 +118,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQL-8H-gxi" customClass="CodeHighlightView" customModule="CodeHighlighting" customModuleProvider="target">
-                                <rect key="frame" x="20" y="28" width="560" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAQ-2M-eUV">
+                                <rect key="frame" x="0.0" y="28" width="600" height="572"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tja-pu-RlV">
+                                        <rect key="frame" x="8" y="8" width="584" height="221"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCS-Ep-nUm">
+                                                <rect key="frame" x="0.0" y="0.0" width="584" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PqT-oR-gw8" customClass="CodeHighlightView" customModule="CodeHighlighting" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="21" width="584" height="200"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="PqT-oR-gw8" firstAttribute="leading" secondItem="tja-pu-RlV" secondAttribute="leading" id="GUB-4G-BCY"/>
+                                            <constraint firstAttribute="trailing" secondItem="PqT-oR-gw8" secondAttribute="trailing" id="LMO-Gk-6e8"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="tja-pu-RlV" secondAttribute="bottom" constant="8" id="PYy-kW-vtr"/>
+                                    <constraint firstItem="tja-pu-RlV" firstAttribute="top" secondItem="XAQ-2M-eUV" secondAttribute="top" constant="8" id="ecJ-NU-Tt3"/>
+                                    <constraint firstItem="tja-pu-RlV" firstAttribute="width" secondItem="XAQ-2M-eUV" secondAttribute="width" constant="-16" id="oOw-sg-HHh"/>
+                                    <constraint firstAttribute="trailing" secondItem="tja-pu-RlV" secondAttribute="trailing" constant="8" id="r8g-wK-Pst"/>
+                                    <constraint firstItem="tja-pu-RlV" firstAttribute="leading" secondItem="XAQ-2M-eUV" secondAttribute="leading" constant="8" id="sBx-xM-4Uf"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cQL-8H-gxi" secondAttribute="trailing" constant="20" id="Q3z-Ws-9Rd"/>
-                            <constraint firstItem="cQL-8H-gxi" firstAttribute="leading" secondItem="tDs-na-9RY" secondAttribute="leading" constant="20" id="lj0-YO-JVs"/>
-                            <constraint firstItem="cQL-8H-gxi" firstAttribute="top" secondItem="TSx-qI-Vnw" secondAttribute="bottom" constant="8" id="yad-bF-wm7"/>
+                            <constraint firstItem="XAQ-2M-eUV" firstAttribute="top" secondItem="TSx-qI-Vnw" secondAttribute="bottom" constant="8" id="8zd-GV-vI5"/>
+                            <constraint firstItem="XAQ-2M-eUV" firstAttribute="centerX" secondItem="tDs-na-9RY" secondAttribute="centerX" id="C14-oL-DML"/>
+                            <constraint firstItem="XAQ-2M-eUV" firstAttribute="leading" secondItem="tDs-na-9RY" secondAttribute="leading" id="MFR-x2-dcc"/>
+                            <constraint firstItem="hta-rC-jTF" firstAttribute="top" secondItem="XAQ-2M-eUV" secondAttribute="bottom" id="Zwu-x8-VEz"/>
+                            <constraint firstAttribute="trailing" secondItem="XAQ-2M-eUV" secondAttribute="trailing" id="wvy-lm-d5m"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="codeView" destination="cQL-8H-gxi" id="FrU-8u-ltw"/>
+                        <outlet property="codeView" destination="PqT-oR-gw8" id="fNn-FD-wiY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGp-nl-9j4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="391"/>
+            <point key="canvasLocation" x="343" y="327"/>
         </scene>
     </scenes>
 </document>

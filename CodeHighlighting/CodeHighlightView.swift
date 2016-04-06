@@ -52,8 +52,15 @@ class CodeHighlightView: UIView {
     private func setup() {
         addSubview(webView)
         webView.delegate = self
-        webView.scrollView.bounces = false
+        webView.backgroundColor = UIColor(rgb: 0x3f3f3f)
         webView.scrollView.contentInset = UIEdgeInsetsZero
+        webView.scrollView.showsVerticalScrollIndicator = false
+        webView.scrollView.showsHorizontalScrollIndicator = false
+        webView.scrollView.bounces = true
+        webView.scrollView.alwaysBounceHorizontal = true
+        webView.scrollView.alwaysBounceVertical = false
+        webView.scrollView.scrollsToTop = false
+        webView.scalesPageToFit = false
         webView.frame = bounds
         webView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         context = webView.valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as! JSContext
@@ -72,11 +79,8 @@ class CodeHighlightView: UIView {
 extension CodeHighlightView: UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         context.evaluateScript("highlightCode(codeString)")
-        dispatch_async(dispatch_get_main_queue()) { 
-            if let h = webView.stringByEvaluatingJavaScriptFromString("document.body.offsetHeight") {
-                print(h)
-                self.height = CGFloat((h as NSString).floatValue)
-            }
+        if let h = webView.stringByEvaluatingJavaScriptFromString("document.body.offsetHeight") {
+            self.height = CGFloat((h as NSString).floatValue)
         }
     }
 }
